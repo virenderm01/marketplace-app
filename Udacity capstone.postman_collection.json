@@ -1,0 +1,672 @@
+{
+	"info": {
+		"_postman_id": "9a27af3d-0d1f-42b2-a098-f837bfecff9e",
+		"name": "Udacity capstone",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "MarketPlace",
+			"item": [
+				{
+					"name": "Advertisements",
+					"item": [
+						{
+							"name": "Create an advertisement",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{authToken}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"name\": \"TV for sale\",\n\t\"description\": \"Brand new samsung 32 inch tv. 2019 model, in good working condition. Asking price 200 Euros\"\n}"
+								},
+								"url": {
+									"raw": "https://{{apiId}}.execute-api.us-east-2.amazonaws.com/dev/categories/9de6f079-0683-42e1-a574-a634974644fc/advertisements",
+									"protocol": "https",
+									"host": [
+										"{{apiId}}",
+										"execute-api",
+										"us-east-2",
+										"amazonaws",
+										"com"
+									],
+									"path": [
+										"dev",
+										"categories",
+										"9de6f079-0683-42e1-a574-a634974644fc",
+										"advertisements"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create invalid advertisement",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{authToken}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"name\": \"TV for sale\",\n\t\"description\": \"Brand new samsung 32 inch tv. 2019 model, in good working condition. Asking price 200 Euros\"\n}"
+								},
+								"url": {
+									"raw": "https://{{apiId}}.execute-api.us-east-2.amazonaws.com/dev/categories/9de6f079-0683-42e1-a574-a634974644fc/advertisements",
+									"protocol": "https",
+									"host": [
+										"{{apiId}}",
+										"execute-api",
+										"us-east-2",
+										"amazonaws",
+										"com"
+									],
+									"path": [
+										"dev",
+										"categories",
+										"9de6f079-0683-42e1-a574-a634974644fc",
+										"advertisements"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update an advertisement",
+							"request": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{authToken}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"name\": \"TV for sale\",\n\t\"description\": \"Brand new samsung 32 inch tv. 2019 model, in good working condition. Asking price 200 Euros. Updated price 190 Euros.\"\n}"
+								},
+								"url": {
+									"raw": "https://{{apiId}}.execute-api.us-east-2.amazonaws.com/dev/categories/9de6f079-0683-42e1-a574-a634974644fc/advertisements/b5a96ec5-0663-4ccc-bb22-0c3f2b111016",
+									"protocol": "https",
+									"host": [
+										"{{apiId}}",
+										"execute-api",
+										"us-east-2",
+										"amazonaws",
+										"com"
+									],
+									"path": [
+										"dev",
+										"categories",
+										"9de6f079-0683-42e1-a574-a634974644fc",
+										"advertisements",
+										"b5a96ec5-0663-4ccc-bb22-0c3f2b111016"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Invalid owner Update of advertisement from another user",
+							"request": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{authToken2}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"name\": \"TV for sale\",\n\t\"description\": \"Brand new samsung 32 inch tv. 2019 model, in good working condition. Asking price 200 Euros. Updated price 190 Euros.\"\n}"
+								},
+								"url": {
+									"raw": "https://{{apiId}}.execute-api.us-east-2.amazonaws.com/dev/categories/9de6f079-0683-42e1-a574-a634974644fc/advertisements/b5a96ec5-0663-4ccc-bb22-0c3f2b111016",
+									"protocol": "https",
+									"host": [
+										"{{apiId}}",
+										"execute-api",
+										"us-east-2",
+										"amazonaws",
+										"com"
+									],
+									"path": [
+										"dev",
+										"categories",
+										"9de6f079-0683-42e1-a574-a634974644fc",
+										"advertisements",
+										"b5a96ec5-0663-4ccc-bb22-0c3f2b111016"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Advertisements for a category",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{authToken}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "https://{{apiId}}.execute-api.us-east-2.amazonaws.com/dev/categories/9de6f079-0683-42e1-a574-a634974644fc/advertisements",
+									"protocol": "https",
+									"host": [
+										"{{apiId}}",
+										"execute-api",
+										"us-east-2",
+										"amazonaws",
+										"com"
+									],
+									"path": [
+										"dev",
+										"categories",
+										"9de6f079-0683-42e1-a574-a634974644fc",
+										"advertisements"
+									],
+									"query": [
+										{
+											"key": "owner",
+											"value": "y",
+											"disabled": true
+										},
+										{
+											"key": "limit",
+											"value": "10",
+											"disabled": true
+										},
+										{
+											"key": "nextKey",
+											"value": null,
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Elastic Search For text in Advertisments",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJnaXZlbl9uYW1lIjoiSXZhbiIsImZhbWlseV9uYW1lIjoiTXVzaGtldHlrIiwibmlja25hbWUiOiJpdmFuLm11c2hrZXRpayIsIm5hbWUiOiJJdmFuIE11c2hrZXR5ayIsInBpY3R1cmUiOiJodHRwczovL2xoNS5nb29nbGV1c2VyY29udGVudC5jb20vLTlFMzN4NG95YnZnL0FBQUFBQUFBQUFJL0FBQUFBQUFBR2JjL090SEFIWDlHbFBnL3Bob3RvLmpwZyIsImxvY2FsZSI6ImVuLUdCIiwidXBkYXRlZF9hdCI6IjIwMTktMDQtMDhUMjA6MTA6MDkuNjU2WiIsImVtYWlsIjoiaXZhbi5tdXNoa2V0aWtAZ21haWwuY29tIiwiZW1haWxfdmVyaWZpZWQiOnRydWUsImlzcyI6Imh0dHBzOi8vdGVzdC1lbmRwb2ludC5hdXRoMC5jb20vIiwic3ViIjoiZ29vZ2xlLW9hdXRoMnwxMTEwMzM3OTg1NDUwMTAxMjU4NTUiLCJhdWQiOiJHcTEzTTlzTnZtaTFJWFFLa1cya2N3TndVN2l1T05lTCIsImlhdCI6MTU1NDc1NDIwOSwiZXhwIjoxNTU0NzkwMjA5LCJhdF9oYXNoIjoidUFjYkk0c0NSZ2xVb1lwYVdaYW5JQSIsIm5vbmNlIjoiYU1NNGE1WkMySWowflNxSlRiRzBhZUYzLmpNenh4OVkifQ.QgVnp19MxrNqLjNy0tF5UhARFDqIvUyI0ZintM10Row",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "https://search-advertisements-search-dev-npg2bejginsaoqqgpuuolnky6i.us-east-2.es.amazonaws.com/_search?q=samsung",
+									"protocol": "https",
+									"host": [
+										"search-advertisements-search-dev-npg2bejginsaoqqgpuuolnky6i",
+										"us-east-2",
+										"es",
+										"amazonaws",
+										"com"
+									],
+									"path": [
+										"_search"
+									],
+									"query": [
+										{
+											"key": "q",
+											"value": "samsung"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Advertisement",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{authToken}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "https://{{apiId}}.execute-api.us-east-2.amazonaws.com/dev/categories/9de6f079-0683-42e1-a574-a634974644fc/advertisements/b3edbaac-f25d-4926-8860-8fd3002d2476",
+									"protocol": "https",
+									"host": [
+										"{{apiId}}",
+										"execute-api",
+										"us-east-2",
+										"amazonaws",
+										"com"
+									],
+									"path": [
+										"dev",
+										"categories",
+										"9de6f079-0683-42e1-a574-a634974644fc",
+										"advertisements",
+										"b3edbaac-f25d-4926-8860-8fd3002d2476"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Invalid owner Delete Advertisement",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{authToken2}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "https://{{apiId}}.execute-api.us-east-2.amazonaws.com/dev/categories/9de6f079-0683-42e1-a574-a634974644fc/advertisements/b3edbaac-f25d-4926-8860-8fd3002d2476",
+									"protocol": "https",
+									"host": [
+										"{{apiId}}",
+										"execute-api",
+										"us-east-2",
+										"amazonaws",
+										"com"
+									],
+									"path": [
+										"dev",
+										"categories",
+										"9de6f079-0683-42e1-a574-a634974644fc",
+										"advertisements",
+										"b3edbaac-f25d-4926-8860-8fd3002d2476"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create Upload URL for advertisement",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{authToken}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "https://{{apiId}}.execute-api.us-east-2.amazonaws.com/dev/categories/9de6f079-0683-42e1-a574-a634974644fc/advertisements/b5a96ec5-0663-4ccc-bb22-0c3f2b111016/attachment",
+									"protocol": "https",
+									"host": [
+										"{{apiId}}",
+										"execute-api",
+										"us-east-2",
+										"amazonaws",
+										"com"
+									],
+									"path": [
+										"dev",
+										"categories",
+										"9de6f079-0683-42e1-a574-a634974644fc",
+										"advertisements",
+										"b5a96ec5-0663-4ccc-bb22-0c3f2b111016",
+										"attachment"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Invalid owner get upload URL",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{authToken}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "https://{{apiId}}.execute-api.us-east-2.amazonaws.com/dev/categories/9de6f079-0683-42e1-a574-a634974644fc/advertisements/b5a96ec5-0663-4ccc-bb22-0c3f2b111016/attachment",
+									"protocol": "https",
+									"host": [
+										"{{apiId}}",
+										"execute-api",
+										"us-east-2",
+										"amazonaws",
+										"com"
+									],
+									"path": [
+										"dev",
+										"categories",
+										"9de6f079-0683-42e1-a574-a634974644fc",
+										"advertisements",
+										"b5a96ec5-0663-4ccc-bb22-0c3f2b111016",
+										"attachment"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Categories",
+					"item": [
+						{
+							"name": "Get all Categories",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{authToken}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "https://{{apiId}}.execute-api.us-east-2.amazonaws.com/dev/categories",
+									"protocol": "https",
+									"host": [
+										"{{apiId}}",
+										"execute-api",
+										"us-east-2",
+										"amazonaws",
+										"com"
+									],
+									"path": [
+										"dev",
+										"categories"
+									],
+									"query": [
+										{
+											"key": "owner",
+											"value": "y",
+											"disabled": true
+										},
+										{
+											"key": "limit",
+											"value": "10",
+											"disabled": true
+										},
+										{
+											"key": "nextKey",
+											"value": null,
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create a category",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{authToken}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"name\": \"Postman\",\n\t\"description\": \"Photos of Postman tool\"\n}"
+								},
+								"url": {
+									"raw": "https://{{apiId}}.execute-api.us-east-1.amazonaws.com/dev/groups/",
+									"protocol": "https",
+									"host": [
+										"{{apiId}}",
+										"execute-api",
+										"us-east-1",
+										"amazonaws",
+										"com"
+									],
+									"path": [
+										"dev",
+										"groups",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create an invalid category",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"name\": \"New\",\n\t\"description\": 1234\n}"
+								},
+								"url": {
+									"raw": "https://{{apiId}}.execute-api.us-east-1.amazonaws.com/dev/groups",
+									"protocol": "https",
+									"host": [
+										"{{apiId}}",
+										"execute-api",
+										"us-east-1",
+										"amazonaws",
+										"com"
+									],
+									"path": [
+										"dev",
+										"groups"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "2c294826-6b79-41b0-a4bd-4a7579cec4f8",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "cf98c6f7-53bb-4374-954e-a7719fb62c55",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "e67f3336-40db-40c6-9927-df98737a3ce6",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "c53abe5c-6375-4a64-97b7-061e0cfa6196",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "4d7ccea9-2fa8-40b1-9e9a-d410cde56cd7",
+			"key": "apiId",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"id": "dfc23fc7-69ef-4285-8b40-ec6b65f74c65",
+			"key": "authToken2",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"id": "4f4750f9-72ce-4657-a73f-c7d9302c1f14",
+			"key": "prodApiId",
+			"value": "",
+			"type": "string",
+			"disabled": true
+		},
+		{
+			"id": "afa60cc4-f991-45b8-abad-dd230b1f8458",
+			"key": "authToken",
+			"value": "",
+			"type": "string"
+		}
+	],
+	"protocolProfileBehavior": {}
+}
